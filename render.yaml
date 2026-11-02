@@ -4,7 +4,6 @@ services:
     name: fashionforge-backend
     runtime: node
     rootDir: backend
-    plan: free
     region: oregon
     buildCommand: npm install
     startCommand: node server.js
@@ -18,12 +17,11 @@ services:
       - key: MONGO_URI
         sync: false
 
-  # 2. Frontend Static Site (Render static sites are served via global CDN, no region)
+  # 2. Frontend Static Site
   - type: web
     name: fashionforge-frontend
     runtime: static
     rootDir: frontend
-    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     routes:
