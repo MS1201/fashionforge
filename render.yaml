@@ -18,13 +18,12 @@ services:
       - key: MONGO_URI
         sync: false
 
-  # 2. Frontend Static Site
+  # 2. Frontend Static Site (Render static sites are served via global CDN, no region)
   - type: web
     name: fashionforge-frontend
     runtime: static
     rootDir: frontend
     plan: free
-    region: oregon
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     routes:
